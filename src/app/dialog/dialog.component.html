@@ -1,0 +1,53 @@
+<h1 mat-dialog-title>Add User Form</h1>
+<div mat-dialog-content>
+  <form [formGroup]="userForm">
+    <div hidden>
+      <mat-form-field appearance="outline">
+        <mat-label>Id</mat-label>
+        <input formControlName="id" matInput placeholder="Id">
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input formControlName="name" matInput placeholder="Enter Name">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Email Id</mat-label>
+      <input formControlName="email" matInput placeholder="Enter Email Address">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Choose a date</mat-label>
+      <input formControlName="dob" matInput [matDatepicker]="picker" max="{{ minDate }}">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <div hidden>
+      <mat-form-field appearance="outline">
+        <mat-label>Age</mat-label>
+        <input formControlName="age" matInput placeholder="Age">
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Enter Salary</mat-label>
+      <input formControlName="salary" matInput placeholder="Enter Salary">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status" placeholder="status">
+        <mat-option value="true">Active</mat-option>
+        <mat-option value="false">Inactive</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+  </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>close</button>
+  <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="addUser()">{{actionBtn}}</button>
+</div>
